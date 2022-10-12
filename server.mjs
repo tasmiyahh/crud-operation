@@ -139,7 +139,7 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-let dbURI = 'mongodb+srv://tasmiyah:web@cluster0.cj82tmo.mongodb.net/crud?retryWrites=true&w=majority';
+let dbURI = process.env.dbURI || 'mongodb+srv://tasmiyah:web@cluster0.cj82tmo.mongodb.net/crud?retryWrites=true&w=majority';
 mongoose.connect(dbURI);
 
 ////////////////mongodb connected disconnected events///////////////////////////////////////////////

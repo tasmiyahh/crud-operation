@@ -11,10 +11,10 @@ const Product = () => {
   const [products, setProducts] = useState([])
   const [toggle, setToggle] = useState(false)
   const [editproduct, setEditProduct] = useState(null)
-
-  useEffect(() => {
+  const baseUrl = (window.location.href.indexOf("https") === -1)? "http://localhost:5000" : "https://crud-operation-production.up.railway.app/"
+  useEffect(() => { 
     axios({
-      url: 'http://localhost:5000/products',
+      url: `${baseUrl}/products`,
       method: "get",
       withCredentials: true
     })
@@ -60,7 +60,7 @@ const Product = () => {
     onSubmit: async (values) => {
       console.log(values);
       try {
-        let response = await axios.post('http://localhost:5000/product',
+        let response = await axios.post(`${baseUrl}/product`,
           values,
           {
             withCredentials: true
@@ -82,7 +82,7 @@ const Product = () => {
 
 
 
-    axios.put(`http://localhost:5000/product/${editproduct?._id}`,
+    axios.put(`${baseUrl}/product/${editproduct?._id}`,
       {
         name: editproduct.name,
         price: editproduct.price,
@@ -208,7 +208,7 @@ const Product = () => {
             <div>{eachProduct?.code}</div>
             <button onClick={() => {
               axios({
-                url: `http://localhost:5000/product/${eachProduct._id}`,
+                url: `${baseUrl}/product/${eachProduct._id}`,
                 method: "delete",
                 withCredentials: true
               })
