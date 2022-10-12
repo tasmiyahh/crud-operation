@@ -11,10 +11,11 @@ const Product = () => {
   const [products, setProducts] = useState([])
   const [toggle, setToggle] = useState(false)
   const [editproduct, setEditProduct] = useState(null)
-  const baseUrl = (window.location.href.indexOf("https") === -1)? "http://localhost:5000" : "https://crud-operation-production.up.railway.app/"
+  
+  
   useEffect(() => { 
     axios({
-      url: `${baseUrl}/products`,
+      url: `https://crud-operation-production.up.railway.app/products`,
       method: "get",
       withCredentials: true
     })
@@ -60,7 +61,7 @@ const Product = () => {
     onSubmit: async (values) => {
       console.log(values);
       try {
-        let response = await axios.post(`${baseUrl}/product`,
+        let response = await axios.post('https://crud-operation-production.up.railway.app/product',
           values,
           {
             withCredentials: true
@@ -82,7 +83,7 @@ const Product = () => {
 
 
 
-    axios.put(`${baseUrl}/product/${editproduct?._id}`,
+    axios.put(`https://crud-operation-production.up.railway.app/product/${editproduct?._id}`,
       {
         name: editproduct.name,
         price: editproduct.price,
@@ -208,7 +209,7 @@ const Product = () => {
             <div>{eachProduct?.code}</div>
             <button onClick={() => {
               axios({
-                url: `${baseUrl}/product/${eachProduct._id}`,
+                url: `https://crud-operation-production.up.railway.app/product/${eachProduct._id}`,
                 method: "delete",
                 withCredentials: true
               })
