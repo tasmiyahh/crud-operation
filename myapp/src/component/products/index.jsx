@@ -15,7 +15,7 @@ const Product = () => {
   
   useEffect(() => { 
     axios({
-      url: `https://crud-operation-production.up.railway.app/products`,
+      url: 'https://crud-operation-production.up.railway.app//products',
       method: "get",
       withCredentials: true
     })
@@ -83,7 +83,7 @@ const Product = () => {
 
 
 
-    axios.put(`https://crud-operation-production.up.railway.app/product/${editproduct?._id}`,
+    axios.put(`https://crud-operation-production.up.railway.app/${editproduct?._id}`,
       {
         name: editproduct.name,
         price: editproduct.price,

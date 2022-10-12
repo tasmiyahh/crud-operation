@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000
 app.use(express.json())
 app.use(cors(
   {
-    origin : ['http://localhost:3000' ,"https://crud-operation-production.up.railway.app/", "*"],
+    origin : ['http://localhost:3000' ,"https://crud-operation-production.up.railway.app", "*"],
     credentials : true
   }
 ))
