@@ -61,7 +61,7 @@ const Product = () => {
     onSubmit: async (values) => {
       console.log(values);
       try {
-        let response = await axios.post('https://drab-gray-viper-hose.cyclic.app/product',
+        let response = await axios.post('https://crud-operation-production.up.railway.app/product',
           values,
           {
             withCredentials: true
@@ -83,7 +83,7 @@ const Product = () => {
 
 
 
-    axios.put(`https://drab-gray-viper-hose.cyclic.app/${editproduct?._id}`,
+    axios.put(`https://crud-operation-production.up.railway.app/product/${editproduct?._id}`,
       {
         name: editproduct.name,
         price: editproduct.price,
@@ -209,7 +209,7 @@ const Product = () => {
             <div>{eachProduct?.code}</div>
             <button onClick={() => {
               axios({
-                url: `https://drab-gray-viper-hose.cyclic.app/product/${eachProduct._id}`,
+                url: `https://crud-operation-production.up.railway.app/product/${eachProduct._id}`,
                 method: "delete",
                 withCredentials: true
               })
