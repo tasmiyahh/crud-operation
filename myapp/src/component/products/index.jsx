@@ -15,7 +15,7 @@ const Product = () => {
   
   useEffect(() => { 
     axios({
-      url: 'https://crud-operation-production.up.railway.app//products',
+      url: 'https://crud-operation-production.up.railway.app/products',
       method: "get",
       withCredentials: true
     })
