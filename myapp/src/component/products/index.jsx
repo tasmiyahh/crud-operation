@@ -13,9 +13,10 @@ const Product = () => {
   const [editproduct, setEditProduct] = useState(null)
   
   
+  
   useEffect(() => { 
     axios({
-      url: 'https://crud-operation-production.up.railway.app/products',
+      url: 'http://localhost:5000/products',
       method: "get",
       withCredentials: true
     })
@@ -61,7 +62,7 @@ const Product = () => {
     onSubmit: async (values) => {
       console.log(values);
       try {
-        let response = await axios.post('https://crud-operation-production.up.railway.app/product',
+        let response = await axios.post('http://localhost:5000/product',
           values,
           {
             withCredentials: true
@@ -73,6 +74,7 @@ const Product = () => {
         console.log("Error in api call: ", e);
       }
     },
+   
   });
 
  
@@ -83,7 +85,7 @@ const Product = () => {
 
 
 
-    axios.put(`https://crud-operation-production.up.railway.app/product/${editproduct?._id}`,
+    axios.put(`http://localhost:5000/product/${editproduct?._id}`,
       {
         name: editproduct.name,
         price: editproduct.price,
@@ -209,7 +211,7 @@ const Product = () => {
             <div>{eachProduct?.code}</div>
             <button onClick={() => {
               axios({
-                url: `https://crud-operation-production.up.railway.app/product/${eachProduct._id}`,
+                url: `http://localhost:5000/product/${eachProduct._id}`,
                 method: "delete",
                 withCredentials: true
               })

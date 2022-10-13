@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema(
     name: { type: String },
     description: { type: String },
     price: { type: Number },
-    code: { type: Number }
+    code: { type: String }
 
 
 
@@ -42,13 +42,18 @@ app.post('/product', async (req, res) => {
       message: "product added",
       data: response
     })
+
   }
+
   catch (error) {
+    console.log("failed to add product" , error)
     res.status(500).send({
       message: "failed to add product"
     })
   }
 })
+
+
 
 
 app.get('/products', async (req, res) => {
