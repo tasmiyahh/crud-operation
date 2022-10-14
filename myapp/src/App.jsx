@@ -3,10 +3,26 @@ import Product from "./component/products"
 
 
 const App =() =>{
+
+  
   return(
-    <div>
+
+   <>
+
+
+   
+   <div>
+    <h1>product</h1>
       <Product/>
     </div>
+   </>
+
+
+
+
+
+
+   
   )
 }
 
