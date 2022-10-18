@@ -211,7 +211,7 @@ const Product = () => {
             <div>{eachProduct?.code}</div>
             <button onClick={() => {
               axios({
-                url: `https://crud-operation-production.up.railway.app//product/${eachProduct._id}`,
+                url: `https://crud-operation-production.up.railway.app/product/${eachProduct._id}`,
                 method: "delete",
                 withCredentials: true
               })
